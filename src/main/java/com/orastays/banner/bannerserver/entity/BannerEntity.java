@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,23 +32,29 @@ public class BannerEntity extends CommonEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "banner_id")
+	@JsonProperty("bannerId")
 	private Long bannerId;
 
 	@Column(name = "banner_img_url")
+	@JsonProperty("bannerImgUrl")
 	private String bannerImgUrl;
 
 	@Column(name = "banner_description")
+	@JsonProperty("bannerDescription")
 	private String bannerDescription;
+	
+	@Column(name = "banner_link")
+	@JsonProperty("bannerLink")
+	private String bannerLink;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "banner_category_id", nullable = false)
+	@JsonProperty("bannerCategory")
 	private BannerCategoryEntity bannerCategoryEntity;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bannerEntity", cascade = { CascadeType.ALL })
+	@JsonProperty("bannerLogs")
 	private List<BannerLogEntity> bannerLogEntity;
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bannerEntity", cascade = { CascadeType.ALL })
-	private List<BannerLinkEntity> bannerLinkEntity;
 	
 	@Override
 	public String toString() {

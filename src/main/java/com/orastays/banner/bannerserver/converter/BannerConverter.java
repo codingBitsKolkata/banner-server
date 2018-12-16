@@ -12,7 +12,6 @@ import com.orastays.banner.bannerserver.entity.BannerEntity;
 import com.orastays.banner.bannerserver.helper.Util;
 import com.orastays.banner.bannerserver.model.BannerModel;
 
-
 @Component
 public class BannerConverter extends CommonConverter implements BaseConverter<BannerEntity, BannerModel> {
 
@@ -21,7 +20,6 @@ public class BannerConverter extends CommonConverter implements BaseConverter<Ba
 
 	@Override
 	public BannerEntity modelToEntity(BannerModel m) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -34,6 +32,7 @@ public class BannerConverter extends CommonConverter implements BaseConverter<Ba
 
 		BannerModel bannerModel = new BannerModel();
 		bannerModel = (BannerModel) Util.transform(modelMapper, e, bannerModel);
+		bannerModel.setBannerCategoryModels(bannerCategoryConverter.entityToModel(e.getBannerCategoryEntity()));
 
 		if (logger.isInfoEnabled()) {
 			logger.info("entityToModel -- END");

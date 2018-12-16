@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,16 +32,20 @@ public class BannerCategoryEntity extends CommonEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "banner_category_id")
+	@JsonProperty("bannerCategoryId")
 	private Long bannerCategoryId;
 
 	@Column(name = "name")
+	@JsonProperty("bannerCategoryName")
 	private String bannerCategoryName;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "banner_type_id", nullable = false)
+	@JsonProperty("bannerType")
 	private BannerTypeEntity bannerTypeEntity;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "bannerCategoryEntity", cascade = { CascadeType.ALL })
+	@JsonProperty("banners")
 	private List<BannerEntity> bannerEntity;
 	
 	@Override

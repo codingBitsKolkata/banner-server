@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import com.orastays.banner.bannerserver.entity.BannerCategoryEntity;
 import com.orastays.banner.bannerserver.helper.Util;
 import com.orastays.banner.bannerserver.model.BannerCategoryModel;
 
+@Component
 public class BannerCategoryConverter extends CommonConverter implements BaseConverter<BannerCategoryEntity, BannerCategoryModel> {
 
 	private static final long serialVersionUID = -7229320970099163831L;
@@ -18,7 +20,6 @@ public class BannerCategoryConverter extends CommonConverter implements BaseConv
 
 	@Override
 	public BannerCategoryEntity modelToEntity(BannerCategoryModel m) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -31,6 +32,7 @@ public class BannerCategoryConverter extends CommonConverter implements BaseConv
 
 		BannerCategoryModel bannerCategoryModel = new BannerCategoryModel();
 		bannerCategoryModel = (BannerCategoryModel) Util.transform(modelMapper, e, bannerCategoryModel);
+		bannerCategoryModel.setBannerTypeModels(bannerTypeConverter.entityToModel(e.getBannerTypeEntity()));
 
 		if (logger.isInfoEnabled()) {
 			logger.info("entityToModel -- END");

@@ -16,4 +16,10 @@ public class CommonConverter {
 
 	@Autowired
 	protected MessageUtil messageUtil;
+	
+	@Autowired
+	protected BannerCategoryConverter bannerCategoryConverter;
+	
+	@Autowired
+	protected BannerTypeConverter bannerTypeConverter;
 }

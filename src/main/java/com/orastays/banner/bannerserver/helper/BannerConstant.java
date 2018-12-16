@@ -1,8 +1,8 @@
 package com.orastays.banner.bannerserver.helper;
 
-public final class AuthConstant {
+public final class BannerConstant {
 
-	private AuthConstant() {}
+	private BannerConstant() {}
 
 	public static final String COMMON_SUCCESS_CODE = "common.success.code";
 	public static final String COMMON_SUCCESS_MESSAGE = "common.success.message";
