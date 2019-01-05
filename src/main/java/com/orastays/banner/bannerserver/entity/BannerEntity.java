@@ -47,6 +47,15 @@ public class BannerEntity extends CommonEntity {
 	@JsonProperty("bannerLink")
 	private String bannerLink;
 	
+	@Column(name = "title")
+	@JsonProperty("title")
+	private String title;
+	
+	@Column(name = "sub_title")
+	@JsonProperty("subTitle")
+	private String subTitle;
+	
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "banner_category_id", nullable = false)
 	@JsonProperty("bannerCategory")
