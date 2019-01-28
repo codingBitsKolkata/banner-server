@@ -52,6 +52,7 @@ public class BannerConverter extends CommonConverter implements BaseConverter<Ba
 		if (!CollectionUtils.isEmpty(es)) {
 			bannerModels = new ArrayList<>();
 			for (BannerEntity bannerEntity : es) {
+				System.out.println("=========="+es);
 				bannerModels.add(entityToModel(bannerEntity));
 			}
 		}

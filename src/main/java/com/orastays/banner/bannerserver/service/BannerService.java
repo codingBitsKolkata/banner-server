@@ -6,5 +6,6 @@ import com.orastays.banner.bannerserver.model.BannerModel;
 
 public interface BannerService {
 	
-	List<BannerModel> fetchBanners();
+	//List<BannerModel> fetchBanners();
+	List<BannerModel> fetchBannersByPageName(String pageName);
 }

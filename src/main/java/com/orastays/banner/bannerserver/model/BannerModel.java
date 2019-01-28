@@ -18,22 +18,25 @@ public class BannerModel extends CommonModel {
 
 	@JsonProperty("bannerId")
 	private String bannerId;
-	
+
 	@JsonProperty("bannerImgUrl")
 	private String bannerImgUrl;
-	
+
 	@JsonProperty("bannerDescription")
 	private String bannerDescription;
-	
+
 	@JsonProperty("bannerLink")
 	private String bannerLink;
-	
+
 	@JsonProperty("title")
 	private String title;
-	
+
 	@JsonProperty("subTitle")
 	private String subTitle;
-	
+
+	@JsonProperty("pageName")
+	private String pageName;
+
 	@JsonProperty("bannerCategory")
 	private BannerCategoryModel bannerCategoryModels;
 }

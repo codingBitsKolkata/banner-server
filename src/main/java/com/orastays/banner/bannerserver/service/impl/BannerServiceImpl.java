@@ -21,7 +21,7 @@ public class BannerServiceImpl extends BaseServiceImpl implements BannerService 
 	
 	private static final Logger logger = LogManager.getLogger(BannerServiceImpl.class);
 
-	@Override
+	/*@Override
 	public List<BannerModel> fetchBanners() {
 		
 		if (logger.isInfoEnabled()) {
@@ -50,5 +50,33 @@ public class BannerServiceImpl extends BaseServiceImpl implements BannerService 
 		}
 		
 		return bannerModels;
+	}*/
+	@Override
+	public List<BannerModel> fetchBannersByPageName(String pageName) {
+		
+		if (logger.isInfoEnabled()) {
+			logger.info("fetchBannersByPage -- START");
+		}
+		
+		List<BannerModel> bannerModels=null;
+		try {
+		Map<String,String> innerMap1=new LinkedHashMap<>();
+		innerMap1.put("status", String.valueOf(Status.ACTIVE.ordinal()));
+		innerMap1.put("pageName", pageName);
+		
+		Map<String, Map<String, String>> outerMap1 = new LinkedHashMap<>();
+		outerMap1.put("eq", innerMap1);
+		
+		Map<String, Map<String, Map<String, String>>> alliasMap = new LinkedHashMap<>();
+		alliasMap.put(entitymanagerPackagesToScan+".BannerEntity", outerMap1);
+
+		bannerModels = bannerConverter.entityListToModelList(bannerDAO.fetchListBySubCiteria(alliasMap));
+		} catch (Exception e) {
+		}
+		if (logger.isInfoEnabled()) {
+			logger.info("fetchBannersByPage -- END");
+		}
+		return bannerModels;
+		
 	}
 }
