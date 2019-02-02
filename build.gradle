@@ -36,7 +36,7 @@ task fatJar(type: Jar) {
 	manifest {
         attributes 'Implementation-Title': 'Banner',  
         	//'Implementation-Version': version,
-        	'Main-Class': 'com.orastays.banner.bannerserver.BannerServerApplication'
+        	'Main-Class': 'com.orastays.bannerserver.BannerServerApplication'
     }
     baseName = project.name
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
