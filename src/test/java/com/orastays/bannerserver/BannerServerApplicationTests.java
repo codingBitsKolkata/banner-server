@@ -1,4 +1,4 @@
-package com.orastays.banner.bannerserver;
+package com.orastays.bannerserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
